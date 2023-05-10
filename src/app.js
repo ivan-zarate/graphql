@@ -17,6 +17,7 @@ const {graphqlController} = require("./controllers/product.controller.js")
 
 const port = newArgs.port;
 
+
 if (newArgs.mode === "CLUSTER" && cluster.isPrimary) {
     for (let i = 0; i < numCors; i++) {
         cluster.fork();
@@ -63,7 +64,7 @@ else {
 
     //Uso de app en las distintas rutas
     app.use('/api/graphql', graphqlController());
-
+    
     app.use(express.static("public"));
 
     //Configuracion para crear mensajes

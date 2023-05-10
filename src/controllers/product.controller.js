@@ -27,8 +27,12 @@ const schemaGraphql = buildSchema(`
         getProductByName(name:String): Product
     }
     type Mutation{
-        createProduct(product:ProductInput): Product,
-        modifyProduct(id:String, product:ProductInput): Product,
+        modifyProduct(
+            _id:String
+            product: ProductInput
+            ): Product
+        createProduct(product:ProductInput): Product
+        
         deleteProduct(id:String): String
     }
 `);
@@ -90,4 +94,4 @@ module.exports = {graphqlController}
 //     }
 // };
 
-// module.exports = {productController,createProductController, editProductController, deleteProductController, productByNameController}
+// module.exports = { editProductController}

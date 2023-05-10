@@ -11,10 +11,10 @@ class ProductService{
     static async createProduct({product}){
         return await productDao.create(product);
     };
-    static async modifyProduct({id}, {product}){
-        console.log("id",id);
-        console.log("product", product);
-        return await productDao.modify(id, product);
+    static async modifyProduct(args){
+        const _id= args._id;
+        const newProduct=args.product;
+        return await productDao.modify({_id}, newProduct);
     };
      static async deleteProduct({id}){
         return await productDao.delete(id);
